@@ -13,17 +13,17 @@ public class Main {
 
         userService.createUsersTable();
 
-        userService.saveUser("name_1", "last_name_1", (byte) 10);
-        userService.saveUser("name_2", "last_name_2", (byte) 20);
-        userService.saveUser("name_3", "last_name_3", (byte) 30);
-        userService.saveUser("name_4", "last_name_4", (byte) 40);
-        userService.saveUser("name_5", "last_name_5", (byte) 50);
+        userService.saveUser("name1", "lastName1", (byte) 5);
+        userService.saveUser("name2", "lastName2", (byte) 10);
+        userService.saveUser("name3", "lastName3", (byte) 15);
+        userService.saveUser("name4", "lastName4", (byte) 20);
+        userService.saveUser("name5", "lastName5", (byte) 25);
 
         List<User> users = userService.getAllUsers();
         System.out.println(users);
 
         userService.removeUserById(2);
-        userService.removeUserById(5);
+        userService.removeUserById(4);
 
         userService.dropUsersTable();
     }
