@@ -11,29 +11,34 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    private final UserDao userDao = new UserDaoHibernateImpl();
+    private static UserDao Dao;
+
+    public UserServiceImpl() {
+        //DAO = new UserDaoJDBCImpl();
+        Dao = new UserDaoHibernateImpl();
+    }
 
     public void createUsersTable() {
-        userDao.createUsersTable();
+        Dao.createUsersTable();
     }
 
     public void dropUsersTable() {
-        userDao.dropUsersTable();
+        Dao.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        userDao.saveUser(name, lastName, age);
+        Dao.saveUser(name, lastName, age);
     }
 
     public void removeUserById(long id) {
-        userDao.removeUserById(id);
+        Dao.removeUserById(id);
     }
 
     public List<User> getAllUsers() {
-        return userDao.getAllUsers();
+        return Dao.getAllUsers();
     }
 
     public void cleanUsersTable() {
-        userDao.cleanUsersTable();
+        Dao.cleanUsersTable();
     }
 }
